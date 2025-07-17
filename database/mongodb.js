@@ -11,6 +11,7 @@ const connectToDatabase = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+
     console.log(`🚀 Connected to MongoDB in ${NODE_ENV} mode.`);
   } catch (error) {
     console.error("🥲 Error connecting to MongoDB:", error);
