@@ -62,7 +62,7 @@ const subscriptionSchema = new mongoose.Schema({
 
 // auto calculate renewal date if missing
 subscriptionSchema.pre("save", function (next) {
-  if (!this.startDate) {
+  if (!this.renewalDate) {
     const renewalPeriods = {
       daily: 1,
       weekly: 7,
@@ -74,6 +74,7 @@ subscriptionSchema.pre("save", function (next) {
     this.renewalDate.setDate(this.renewalDate.getDate() + renewalPeriods[this.frequency]);
   }
 
+  // auto-update the status if renewal date has passed
   if (this.renewalDate < new Date()) {
     this.status = "expired";
   }
