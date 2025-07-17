@@ -1,4 +1,4 @@
-import Subscription from '../models/subscription.model.js';
+import Subscription from "../models/subscription.model.js";
 
 export const createSubscription = async (req, res, next) => {
   try {
@@ -7,10 +7,10 @@ export const createSubscription = async (req, res, next) => {
     const response = { success: true, message: "Subscription created successfully", data: subscription };
     console.log("Subscription created successfully: ", response);
 
-    res.status(201).send(response);
+    res.status(201).json(response);
   } catch (error) {
     console.error("Error creating subscription:", error);
-    res.status(500).send({ error: error.message });
+    res.status(500).json({ error: error.message });
 
     next(error);
   }

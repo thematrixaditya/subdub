@@ -17,12 +17,12 @@ userRouter.post("/", (req, res) => {
 
 // update user details
 userRouter.put("/:id", (req, res) => {
-  res.send({ title: `Update user with ID` });
+  res.send({ title: "Update user with ID" });
 });
 
 // delete a user
 userRouter.delete("/:id", (req, res) => {
-  res.send({ title: `Delete user with ID` });
+  res.send({ title: "Delete user with ID" });
 });
 
 export default userRouter;
